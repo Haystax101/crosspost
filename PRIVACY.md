@@ -1,3 +1,7 @@
+---
+title: Privacy Policy
+---
+
 # Privacy Policy: crosspost
 
 _Last updated: 26 October 2026_

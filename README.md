@@ -56,7 +56,7 @@ Python 3.12, a handful of dependencies, runs free on GitHub Actions every 15 min
 | `crosspost/auth.py` | one-off OAuth per platform |
 | `crosspost/backfill.py` | local backfill: scan, download, approve, status |
 | `config.yaml` | every tunable: folders, tag strip list, privacy, caps, match window |
-| `docs/callback.html` | OAuth landing page to host at `georgehastings.me/crosspost/callback/` |
+| `docs/callback.html` | OAuth landing page, served by GitHub Pages |
 
 ### Exit codes and alerts
 
@@ -84,16 +84,18 @@ pip install -r requirements-local.txt
 cp .env.example .env    # fill in as you go; .env is gitignored
 ```
 
-### 0. Host the policy pages and the OAuth callback
+### 0. Turn on GitHub Pages (policy pages + OAuth callback)
 
 The TikTok and Meta app forms need public URLs for a privacy policy and terms of service,
-and both use an https redirect URI. Put these on georgehastings.me:
+and both use an https redirect URI. This repo serves them itself with GitHub Pages: go to
+**Settings → Pages → Build and deployment → Deploy from a branch**, choose `main` and
+`/ (root)`, then **Save**. About a minute later these are live:
 
 | File | URL |
 |---|---|
-| `PRIVACY.md` (rendered) | `https://georgehastings.me/crosspost/privacy/` |
-| `TERMS.md` (rendered) | `https://georgehastings.me/crosspost/terms/` |
-| `docs/callback.html` | `https://georgehastings.me/crosspost/callback/` |
+| `PRIVACY.md` | `https://haystax101.github.io/crosspost/PRIVACY.html` |
+| `TERMS.md` | `https://haystax101.github.io/crosspost/TERMS.html` |
+| `docs/callback.html` | `https://haystax101.github.io/crosspost/docs/callback.html` |
 
 The callback page only shows the URL it was opened with, so you can copy the
 authorisation code back into the terminal. Nothing is sent anywhere.
@@ -134,11 +136,12 @@ with the day boundary at midnight Pacific.
 1. At <https://developers.tiktok.com>, log in and go to **Manage apps → Connect an app**.
 2. App details: name, icon, category, description. Set **Terms of Service URL** and
    **Privacy Policy URL** to the pages from step 0. Platform: **Web**, with
-   `https://georgehastings.me` as the website. If TikTok asks you to verify the domain,
-   add the DNS TXT record or signature file it gives you.
+   `https://haystax101.github.io/crosspost/` as the website. If TikTok asks you to verify the URL, choose URL-prefix
+   verification, download the signature file it gives you, commit it to the repo root and
+   push. Pages then serves it at the URL TikTok checks.
 3. **Add products**: **Login Kit** and **Display API**.
 4. Scopes: **user.info.basic** and **video.list**.
-5. Login Kit **Redirect URI**: `https://georgehastings.me/crosspost/callback/`.
+5. Login Kit **Redirect URI**: `https://haystax101.github.io/crosspost/docs/callback.html`.
 6. **Sandbox or production**:
    - **Sandbox** works straight away without review. Create a sandbox, add your own TikTok
      account under **Target users**, and use the sandbox's client key and secret. This is
@@ -173,7 +176,7 @@ Facebook Page; this uses *Instagram Login*, not Facebook Login.
      Facebook app ID/secret. Put them in `.env` as `INSTAGRAM_APP_ID` and
      `INSTAGRAM_APP_SECRET`.
    - Under **Set up Instagram business login → Business login settings**, add the OAuth
-     redirect URI `https://georgehastings.me/crosspost/callback/`.
+     redirect URI `https://haystax101.github.io/crosspost/docs/callback.html`.
    - Permissions: **instagram_business_basic** and **instagram_business_content_publish**.
 3. **App roles → Roles → Instagram testers**: add your Instagram username. In Instagram,
    accept the invite (Settings → Website permissions → Apps and websites → Tester

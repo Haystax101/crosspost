@@ -23,7 +23,7 @@ from . import app, config
 from .clients import google, instagram, tiktok
 from .store import generate_key
 
-DEFAULT_REDIRECT = "https://georgehastings.me/crosspost/callback/"
+DEFAULT_REDIRECT = "https://haystax101.github.io/crosspost/docs/callback.html"
 
 
 def _paste_code(url: str, expected_state: str) -> str:

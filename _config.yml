@@ -1,0 +1,4 @@
+# GitHub Pages (Settings -> Pages -> Deploy from branch: main, / (root)).
+# Serves PRIVACY.html, TERMS.html and docs/callback.html for the TikTok/Meta app forms.
+title: crosspost
+exclude: [crosspost, tests, "requirements*.txt", config.yaml, .env.example, .venv, backfill]

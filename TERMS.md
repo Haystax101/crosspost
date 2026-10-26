@@ -1,3 +1,7 @@
+---
+title: Terms of Service
+---
+
 # Terms of Service: crosspost
 
 _Last updated: 26 October 2026_
@@ -11,6 +15,6 @@ _Last updated: 26 October 2026_
    rights to is posted.
 4. **No warranty.** The tool is provided as is, without warranties of any kind. The
    operator is not liable for any loss arising from its use.
-5. **Privacy.** See the [Privacy Policy](https://georgehastings.me/crosspost/privacy/).
+5. **Privacy.** See the [Privacy Policy](https://haystax101.github.io/crosspost/PRIVACY.html).
 6. **Changes.** These terms may be updated. The date above shows the latest version.
 7. **Contact.** Via [georgehastings.me](https://georgehastings.me).
