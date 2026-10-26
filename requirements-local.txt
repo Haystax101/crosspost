@@ -1,0 +1,5 @@
+# Extra tools for local commands (auth, backfill) and tests.
+-r requirements.txt
+google-auth-oauthlib==1.5.0
+yt-dlp==2026.10.21
+pytest==9.1.1

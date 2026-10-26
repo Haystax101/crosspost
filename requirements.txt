@@ -1,0 +1,6 @@
+# Needed by the scheduled job (GitHub Actions).
+requests==2.34.2
+PyYAML==6.0.3
+cryptography==50.0.2
+google-api-python-client==2.201.0
+google-auth==2.62.0

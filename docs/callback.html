@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Crosspost sign-in</title>
+<style>
+  body { font: 16px/1.5 system-ui, sans-serif; max-width: 40rem; margin: 3rem auto; padding: 0 1rem; color: #222; background: #fff; }
+  textarea { width: 100%; height: 7rem; font: 13px ui-monospace, monospace; }
+  button { font: inherit; padding: .4rem 1rem; }
+  @media (prefers-color-scheme: dark) { body { color: #eee; background: #111; } textarea { background: #222; color: #eee; } }
+</style>
+</head>
+<body>
+<h1>Almost done</h1>
+<p id="msg">Copy this URL and paste it into the terminal where <code>python -m crosspost.auth</code> is waiting.</p>
+<textarea id="url" readonly></textarea>
+<p><button id="copy">Copy</button></p>
+<script>
+  // Nothing is sent anywhere: this page only shows the address it was opened with.
+  const box = document.getElementById("url");
+  box.value = location.href;
+  if (new URLSearchParams(location.search).get("error")) {
+    document.getElementById("msg").textContent = "Authorisation was declined or failed. Details are in the URL below.";
+  }
+  document.getElementById("copy").onclick = () => { box.select(); navigator.clipboard.writeText(box.value); };
+</script>
+</body>
+</html>
